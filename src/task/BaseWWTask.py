@@ -999,6 +999,7 @@ class BaseWWTask(BaseTask):
         return True
 
     def click_on_book_target(self, serial_number: int, total_number: int):
+        self.sleep(0.2)
         # Double-drop layouts used to change the old scrollbar top.
         # There is no current double-drop event; remeasure before restoring support.
         # Will see whether the current double_drop_color still applies.
@@ -1032,7 +1033,7 @@ class BaseWWTask(BaseTask):
             target_top_index = min(serial_number, max_top_index)
 
             scrollbar_y = (scrollbar_bottom - slider_bottom_top) / (max_top_index - 1) * (
-                target_top_index - 1) + slider_bottom_top
+                    target_top_index - 1) + slider_bottom_top
 
             self.click_relative(scrollbar_x, scrollbar_y, after_sleep=1)
 
@@ -1046,6 +1047,7 @@ class BaseWWTask(BaseTask):
                                  threshold=0.8)
         if btns is None:
             raise Exception("can't find boss_proceed")
+
         top_btn = min(btns, key=lambda box: box.y)
         self.click_box(top_btn.copy(x_offset=-top_btn.width * 2), after_sleep=1)
         self.wait_feature(['fast_travel_custom', 'gray_teleport', 'remove_custom'], time_out=10, settle_time=0.5)

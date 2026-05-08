@@ -960,6 +960,8 @@ class BaseWWTask(BaseTask):
             if self.find_one(feature_name, threshold=0.7):
                 self.sleep(0.5)
                 feature = self.find_one(feature_name, threshold=0.7)
+                if not feature:
+                    continue
                 self.click(feature, after_sleep=1)
                 if feature.name == 'fast_travel_custom':
                     if confirm := self.wait_feature(

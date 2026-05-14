@@ -431,7 +431,6 @@ class BaseWWTask(BaseTask):
             self.click(0.70, 0.71, after_sleep=1)  # 点击确认
             self.click(0.70, 0.71, after_sleep=1)
             self.back(after_sleep=1)
-            self.back(after_sleep=1)
             self.click(x, y, after_sleep=1)
 
         current -= used

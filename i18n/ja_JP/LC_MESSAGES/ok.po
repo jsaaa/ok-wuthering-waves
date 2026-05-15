@@ -676,49 +676,49 @@ msgid "Yes if Farming Nightmare: Hecate"
 msgstr "悪夢・ヘカテを周回する場合は「はい」を選択"
 
 msgid "Auto Farm all Nightmare Nest"
-msgstr ""
+msgstr "すべての悪夢の巣を自動周回"
 
 msgid "Default"
-msgstr ""
+msgstr "デフォルト"
 
 msgid "Fenrico"
-msgstr ""
+msgstr "フェンリコ"
 
 msgid "Nameless Explorer"
 msgstr "名もない探索者"
 
 msgid "Lady of the Sea"
-msgstr ""
+msgstr "海の女王"
 
 msgid "Lioness of Glory"
-msgstr ""
+msgstr "栄光の獅子"
 
 msgid "Nightmare Nest Task"
-msgstr ""
+msgstr "悪夢の巣タスク"
 
 msgid "Select boss profile (includes Combat Wait Time)"
-msgstr ""
+msgstr "ボス設定を選択（戦闘待機時間を含む）"
 
 msgid "Wait time before each combat (seconds), overrides Boss profile if set"
-msgstr ""
+msgstr "各戦闘前の待機時間（秒）。設定するとボス設定より優先されます"
 
 msgid "Auto Click Fast Travel in Map"
-msgstr ""
+msgstr "マップでファストトラベルを自動クリック"
 
 msgid "Character Config"
 msgstr "キャラクター設定"
 
 msgid "Check Levitator"
-msgstr ""
+msgstr "レビテーターを確認"
 
 msgid "Do not use Liberation in Open World to Save Time"
-msgstr ""
+msgstr "時間短縮のため、オープンワールドでは共鳴解放を使わない"
 
 msgid "Do not use Liberation to Save Time"
-msgstr ""
+msgstr "時間短縮のため、共鳴解放を使わない"
 
 msgid "Fast Travel"
-msgstr ""
+msgstr "ファストトラベル"
 
 msgid "Iuno C6"
 msgstr "ユーノ完凸"
@@ -730,25 +730,25 @@ msgid "Chisa DPS"
 msgstr "千咲 アタッカー"
 
 msgid "Nightmare: Hecate"
-msgstr ""
+msgstr "ナイトメア・ヘカテー"
 
 msgid "Hyvatia"
 msgstr "ハイヴェイシャ"
 
 msgid "Other"
-msgstr ""
+msgstr "その他"
 
 msgid "Toggle the levitator and verify if the character is floating"
-msgstr ""
+msgstr "レビテーターを切り替えて、キャラクターが浮遊しているか確認します"
 
 msgid "Use Liberation"
-msgstr ""
+msgstr "共鳴解放を使用"
 
 msgid "Daily"
-msgstr ""
+msgstr "デイリー"
 
 msgid "Dungeon"
-msgstr ""
+msgstr "ダンジョン"
 
 msgid "Farm"
-msgstr ""
+msgstr "周回"

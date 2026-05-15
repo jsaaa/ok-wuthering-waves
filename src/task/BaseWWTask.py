@@ -79,7 +79,18 @@ class BaseWWTask(BaseTask):
     def _send_notification(self, level, message, *args):
         if args:
             message = " ".join([str(message), *[str(arg) for arg in args]])
-        NotificationService(self.get_global_config('Notification Config')).notify(level, str(message), self)
+        NotificationService(self.get_global_config('Notification Config')).notify(
+            level,
+            self._translate_notification_message(str(message)),
+            self,
+        )
+
+    @staticmethod
+    def _translate_notification_message(message):
+        try:
+            return og.app.tr(message)
+        except Exception:
+            return message
 
     def absorb_echo_text(self, ignore_config=False):
         if self.game_lang == 'zh_CN' or self.game_lang == 'en_US' or self.game_lang == 'zh_TW':

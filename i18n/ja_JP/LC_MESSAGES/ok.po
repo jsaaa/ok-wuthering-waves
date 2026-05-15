@@ -63,6 +63,27 @@ msgstr "テスト通知を送信"
 msgid "Send a test notification to Discord"
 msgstr "Discordへテスト通知を送信します"
 
+msgid "Discord webhook test notification"
+msgstr "Discord Webhookのテスト通知"
+
+msgid "Characters dead"
+msgstr "キャラクターが戦闘不能になりました"
+
+msgid "Target enemy failed, please disable Nvidia/AMD Filter or Sharpening!"
+msgstr "敵のターゲットに失敗しました。NVIDIA/AMDのフィルターまたはシャープ化を無効にしてください。"
+
+msgid "cannot find any stars, stop farming"
+msgstr "スターが見つからないため、周回を停止します"
+
+msgid "too far from next star, stop farming"
+msgstr "次のスターまで遠すぎるため、周回を停止します"
+
+msgid "自动肉鸽结束!"
+msgstr "自動ローグライクが終了しました！"
+
+msgid "符合条件的声骸，已暂停任务"
+msgstr "条件に合う音骸を見つけたため、タスクを一時停止しました"
+
 msgid "Fleurdelys"
 msgstr "フルールドリス"
 

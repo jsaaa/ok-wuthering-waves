@@ -66,6 +66,18 @@ msgstr "Discordへテスト通知を送信します"
 msgid "Discord webhook test notification"
 msgstr "Discord Webhookのテスト通知"
 
+msgid "farm_domain: exceeded recovery retries ({max_recovery_retries}), stop farming"
+msgstr "復帰リトライが上限（{max_recovery_retries}回）に達したため、周回を停止します"
+
+msgid "Loaded {loaded_count} from {total_count} Stars"
+msgstr "{total_count}個中{loaded_count}個のスターを読み込みました"
+
+msgid "No echo can be modified. Task finished. Enhanced {total_count}, matched {success_count}."
+msgstr "変更できる音骸がありません。タスクを終了します。強化数: {total_count}個、条件一致: {success_count}個"
+
+msgid "No echo can be enhanced. Task finished. Enhanced {total_count}, matched {success_count}."
+msgstr "強化できる音骸がありません。タスクを終了します。強化数: {total_count}個、条件一致: {success_count}個"
+
 msgid "Characters dead"
 msgstr "キャラクターが戦闘不能になりました"
 

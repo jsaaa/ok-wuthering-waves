@@ -11,7 +11,7 @@ version = "dev"
 
 
 def send_discord_test_notification():
-    from ok import Logger
+    from ok import Logger, og
     from src.notification.notification_service import NotificationService
 
     logger = Logger.get_logger(__name__)
@@ -28,7 +28,11 @@ def send_discord_test_notification():
         return
 
     notification_config['Enable Discord Webhook'] = True
-    NotificationService(notification_config).notify('INFO', 'Discord webhook test notification')
+    try:
+        message = og.app.tr('Discord webhook test notification')
+    except Exception:
+        message = 'Discord webhook test notification'
+    NotificationService(notification_config).notify('INFO', message)
 
 
 def calculate_pc_exe_path(running_path):

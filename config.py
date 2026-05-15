@@ -10,6 +10,27 @@ from src.task.process_feature import process_feature
 version = "dev"
 
 
+def send_discord_test_notification():
+    from ok import Logger
+    from src.notification.notification_service import NotificationService
+
+    logger = Logger.get_logger(__name__)
+    notification_config = dict(notification_config_option.default_config)
+    config_path = Path(config.get('config_folder', 'configs')) / 'Notification Config.json'
+    if config_path.exists():
+        import json
+
+        with config_path.open('r', encoding='utf-8') as file:
+            notification_config.update(json.load(file))
+
+    if not notification_config.get('Discord Webhook URL'):
+        logger.error('Discord Webhook URL is empty')
+        return
+
+    notification_config['Enable Discord Webhook'] = True
+    NotificationService(notification_config).notify('INFO', 'Discord webhook test notification')
+
+
 def calculate_pc_exe_path(running_path):
     game_exe_folder = Path(running_path).parents[3]
     return str(game_exe_folder / "Wuthering Waves.exe")
@@ -94,6 +115,13 @@ notification_config_option = ConfigOption('Notification Config', {
     'Mention User ID': 'Optional Discord user ID to mention',
     'Notify On Info': 'Send notifications for informational task events',
     'Notify On Error': 'Send notifications for task errors',
+    'Send Test Notification': 'Send a test notification to Discord',
+}, config_type={
+    'Send Test Notification': {
+        'type': 'button',
+        'text': 'Send Test Notification',
+        'callback': send_discord_test_notification,
+    },
 })
 
 config = {

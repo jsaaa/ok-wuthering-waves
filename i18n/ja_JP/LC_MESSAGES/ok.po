@@ -57,6 +57,12 @@ msgstr "エラー通知を送信"
 msgid "Send notifications for task errors"
 msgstr "タスクエラーを通知します"
 
+msgid "Send Test Notification"
+msgstr "テスト通知を送信"
+
+msgid "Send a test notification to Discord"
+msgstr "Discordへテスト通知を送信します"
+
 msgid "Fleurdelys"
 msgstr "フルールドリス"
 

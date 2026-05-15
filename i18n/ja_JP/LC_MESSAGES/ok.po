@@ -9,6 +9,54 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Notification Config"
+msgstr "通知設定"
+
+msgid "Send task notifications to Discord"
+msgstr "タスク通知をDiscordへ送信します"
+
+msgid "Enable Discord Webhook"
+msgstr "Discord Webhookを有効化"
+
+msgid "Send task notifications to a Discord webhook"
+msgstr "タスク通知をDiscord Webhookへ送信します"
+
+msgid "Discord Webhook URL"
+msgstr "Discord Webhook URL"
+
+msgid "Discord webhook URL"
+msgstr "Discord Webhook URL"
+
+msgid "Discord Username"
+msgstr "Discordユーザー名"
+
+msgid "Webhook display name"
+msgstr "Webhookの表示名"
+
+msgid "Attach Screenshot"
+msgstr "スクリーンショットを添付"
+
+msgid "Attach the current game screenshot when possible"
+msgstr "可能な場合、現在のゲーム画面を添付します"
+
+msgid "Mention User ID"
+msgstr "メンションするユーザーID"
+
+msgid "Optional Discord user ID to mention"
+msgstr "任意でメンションするDiscordユーザーID"
+
+msgid "Notify On Info"
+msgstr "情報通知を送信"
+
+msgid "Send notifications for informational task events"
+msgstr "タスクの情報イベントを通知します"
+
+msgid "Notify On Error"
+msgstr "エラー通知を送信"
+
+msgid "Send notifications for task errors"
+msgstr "タスクエラーを通知します"
+
 msgid "Fleurdelys"
 msgstr "フルールドリス"
 

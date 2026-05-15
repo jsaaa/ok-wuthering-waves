@@ -78,13 +78,37 @@ monthly_card_config_option = ConfigOption('Monthly Card Config', {
     'Monthly Card Time': 'Your computer\'s local time when the monthly card will popup, hour in (1-24)'
 })
 
+notification_config_option = ConfigOption('Notification Config', {
+    'Enable Discord Webhook': False,
+    'Discord Webhook URL': '',
+    'Discord Username': 'OK-WW',
+    'Attach Screenshot': True,
+    'Mention User ID': '',
+    'Notify On Info': True,
+    'Notify On Error': True,
+}, description='Send task notifications to Discord', config_description={
+    'Enable Discord Webhook': 'Send task notifications to a Discord webhook',
+    'Discord Webhook URL': 'Discord webhook URL',
+    'Discord Username': 'Webhook display name',
+    'Attach Screenshot': 'Attach the current game screenshot when possible',
+    'Mention User ID': 'Optional Discord user ID to mention',
+    'Notify On Info': 'Send notifications for informational task events',
+    'Notify On Error': 'Send notifications for task errors',
+})
+
 config = {
     'debug': False,  # Optional, default: False
     'use_gui': True,
     'config_folder': 'configs',
     'screenshot_processor': make_bottom_right_black,
     'gui_icon': 'icon.png',
-    'global_configs': [key_config_option, char_config_option, pick_echo_config_option, monthly_card_config_option],
+    'global_configs': [
+        key_config_option,
+        char_config_option,
+        pick_echo_config_option,
+        monthly_card_config_option,
+        notification_config_option,
+    ],
     'ocr': {
         'lib': 'onnxocr',
         'auto_simplify': True,

@@ -10,6 +10,7 @@ from ok import CannotFindException
 import cv2
 
 from src.Labels import Labels
+from src.notification.notification_service import NotificationService
 from src.scene.WWScene import WWScene
 
 logger = Logger.get_logger(__name__)
@@ -62,6 +63,23 @@ class BaseWWTask(BaseTask):
             return False, message
         else:
             return True, None
+
+    def log_info(self, message, *args, notify=False, **kwargs):
+        result = super().log_info(message, *args, notify=notify, **kwargs)
+        if notify:
+            self._send_notification("INFO", message, *args)
+        return result
+
+    def log_error(self, message, *args, notify=False, **kwargs):
+        result = super().log_error(message, *args, notify=notify, **kwargs)
+        if notify:
+            self._send_notification("ERROR", message, *args)
+        return result
+
+    def _send_notification(self, level, message, *args):
+        if args:
+            message = " ".join([str(message), *[str(arg) for arg in args]])
+        NotificationService(self.get_global_config('Notification Config')).notify(level, str(message), self)
 
     def absorb_echo_text(self, ignore_config=False):
         if self.game_lang == 'zh_CN' or self.game_lang == 'en_US' or self.game_lang == 'zh_TW':

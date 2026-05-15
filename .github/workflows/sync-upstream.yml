@@ -1,0 +1,45 @@
+name: Sync fork with upstream
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 09:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream
+        run: |
+          git remote add upstream https://github.com/ok-oldking/ok-wuthering-waves.git
+          git fetch upstream master
+          git fetch origin master
+
+      - name: Update upstream-master
+        run: |
+          git checkout -B upstream-master upstream/master
+          git push origin upstream-master --force-with-lease
+
+      - name: Merge into master
+        run: |
+          git checkout master
+          git merge --no-edit upstream-master
+          git push origin master

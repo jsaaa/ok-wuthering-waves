@@ -18,10 +18,9 @@ def send_discord_test_notification():
     notification_config = dict(og.global_config.get_config(notification_config_option))
 
     if not notification_config.get('Discord Webhook URL'):
-        logger.error('Discord Webhook URL is empty')
+        logger.error(og.app.tr('Discord Webhook URL is empty'))
         return
 
-    notification_config['Enable Discord Webhook'] = True
     try:
         message = og.app.tr('Discord webhook test notification')
     except Exception:
@@ -98,7 +97,6 @@ monthly_card_config_option = ConfigOption('Monthly Card Config', {
 })
 
 notification_config_option = ConfigOption('Notification Config', {
-    'Enable Discord Webhook': False,
     'Discord Webhook URL': '',
     'Discord Username': 'OK-WW',
     'Attach Screenshot': True,
@@ -106,7 +104,6 @@ notification_config_option = ConfigOption('Notification Config', {
     'Notify On Info': True,
     'Notify On Error': True,
 }, description='Send task notifications to Discord', config_description={
-    'Enable Discord Webhook': 'Send task notifications to a Discord webhook',
     'Discord Webhook URL': 'Discord webhook URL',
     'Discord Username': 'Webhook display name',
     'Attach Screenshot': 'Attach the current game screenshot when possible',

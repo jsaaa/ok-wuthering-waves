@@ -1,4 +1,4 @@
-from ok import Logger
+from ok import Logger, og
 import threading
 
 from src.notification.discord_webhook import DiscordWebhookNotifier
@@ -11,15 +11,16 @@ class NotificationService:
         self.config = config or {}
 
     def notify(self, level: str, message: str, task=None) -> None:
-        if not self.config.get("Enable Discord Webhook"):
-            return
         if level == "INFO" and not self.config.get("Notify On Info", True):
             return
         if level == "ERROR" and not self.config.get("Notify On Error", True):
             return
+        if not self._task_notification_enabled(task):
+            return
 
         webhook_url = self.config.get("Discord Webhook URL", "")
         if not webhook_url:
+            logger.error(self._translate("Discord Webhook URL is empty. Please set it in Notification Config."))
             return
 
         screenshot = self._get_screenshot(task)
@@ -48,6 +49,19 @@ class NotificationService:
         except Exception:
             logger.debug("Could not capture notification screenshot")
             return None
+
+    @staticmethod
+    def _task_notification_enabled(task) -> bool:
+        if task is None:
+            return True
+        return bool(getattr(task, "config", {}).get("Send Discord Notification", False))
+
+    @staticmethod
+    def _translate(message: str) -> str:
+        try:
+            return og.app.tr(message)
+        except Exception:
+            return message
 
     @staticmethod
     def _send_safely(notifier, level: str, message: str, task_name: str, screenshot, mention_user_id: str) -> None:

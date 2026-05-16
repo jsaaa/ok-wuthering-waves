@@ -58,11 +58,21 @@ class BaseWWTask(BaseTask):
                 self.send_key('esc', after_sleep=1)
 
     def validate(self, key, value):
+        if key == 'Send Discord Notification' and value:
+            notification_config = self.get_global_config('Notification Config')
+            if not notification_config.get('Discord Webhook URL'):
+                return False, self._translate_notification_message(
+                    'Discord Webhook URL is empty. Please set it in Notification Config.')
         message = self.validate_config(key, value)
         if message:
             return False, message
         else:
             return True, None
+
+    def add_notification_config(self, enabled=False):
+        self.default_config.update({'Send Discord Notification': enabled})
+        self.config_description.update(
+            {'Send Discord Notification': 'Send Discord notifications for this task when notification is enabled'})
 
     def log_info(self, message, *args, notify=False, notification_key=None, notification_args=None, **kwargs):
         result = super().log_info(message, *args, notify=notify, **kwargs)
